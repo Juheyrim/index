@@ -6,8 +6,8 @@
   <title>주혜림 – 컴퓨터공학과 3학년 | About Me</title>
   <style>
     :root {
-      --primary: #4f46e5; /* indigo-600 */
-      --secondary: #06b6d4; /* cyan-500 */
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
       --light: #f8fafc;
       --dark: #1f2937;
     }
@@ -15,40 +15,46 @@
     body {
       margin:0; font-family:"Pretendard","Noto Sans KR",sans-serif; color:var(--dark); background:var(--light);
     }
-    /* NAV */
     header { position:fixed; top:0; width:100%; background:white; box-shadow:0 2px 6px rgba(0,0,0,.05); z-index:50; }
     nav { max-width:960px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:14px 20px; }
     nav a { text-decoration:none; color:var(--dark); font-weight:600; margin-left:24px; }
     nav a:hover { color:var(--primary); }
-    /* HERO */
     .hero { background:var(--primary); color:white; padding:140px 20px 100px; text-align:center; }
     .hero h1 { font-size:2.8rem; margin:0 0 12px; }
     .hero p { font-size:1.1rem; margin:0; opacity:.9; }
-    /* SECTION */
     .section { max-width:960px; margin:0 auto; padding:90px 20px 60px; }
     .section h2 { font-size:2rem; margin-bottom:26px; text-align:center; color:var(--primary); }
-    /* ABOUT */
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
     .about-grid img { width:100%; border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,.1); }
     .about-grid ul { list-style:none; padding:0; line-height:1.8; }
-    /* PROJECTS */
     .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px; }
     .card { background:white; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.08); padding:24px; transition:transform .2s; }
     .card:hover { transform:translateY(-4px); }
     .card h3 { margin-top:0; font-size:1.25rem; color:var(--primary); }
     .tags { margin-top:12px; }
     .tag { display:inline-block; background:var(--secondary); color:white; padding:3px 10px; border-radius:9999px; font-size:.75rem; margin-right:6px; margin-top:6px; }
-    /* TIMELINE */
     .timeline { border-left:4px solid var(--primary); padding-left:20px; }
     .timeline-item { margin-bottom:24px; position:relative; }
     .timeline-item::before { content:""; position:absolute; left:-12px; top:4px; width:12px; height:12px; background:var(--primary); border-radius:50%; }
-    /* FOOTER */
     footer { text-align:center; padding:60px 20px; background:#eef2ff; color:var(--dark); }
     @media (max-width:768px){ .about-grid { grid-template-columns:1fr; } nav a { margin-left:14px; } }
+
+    /* 수정된 부분: Volunteer 카드 전용 레이아웃 */
+    .volunteer-intro { text-align: center; margin-bottom: 40px; }
+    .volunteer-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 26px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .volunteer-cards .card:last-child {
+      transform: translateY(20px);
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <header>
     <nav>
       <div style="font-weight:800; color:var(--primary);">Hyerim Ju</div>
@@ -62,13 +68,11 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <h1>안녕하세요, 저는 주혜림입니다!</h1>
     <p>조선대학교 IT융합대학 컴퓨터공학과 3학년 · IoT &amp; AI Enthusiast · 호두의 집사 🐶</p>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="section">
     <h2>About Me</h2>
     <div class="about-grid">
@@ -76,16 +80,15 @@
       <ul>
         <li><strong>이름:</strong> 주혜림 (Hyerim Ju)</li>
         <li><strong>전공:</strong> 컴퓨터공학과, IT융합대학 (3학년)</li>
-        <li><strong>관심 분야:</strong> 임베디드 IoT · 인공지능 · 웹 개발</li>
-        <li><strong>현재 목표:</strong> 2027년 7급 전산직 공무원 합격</li>
+        <li><strong>관심 분야:</strong> 웹개발 · 인공지능 · 임베디드 IoT</li>
+        <li><strong>현재 목표:</strong> 지역인재 7급 전산직 공무원 합격</li>
         <li><strong>취미:</strong> 강아지 호두와 놀기, 스쿠버 다이빙, 수영</li>
-        <li><strong>fun fact:</strong> “집에서 뒹굴거리는걸 좋아합니다 음하하하!!” </li>
-        <li><strong>fun fact:</strong> “저희집 강아지 이름은 호두예요” </li>
+        <li><strong>fun fact:</strong> 집에서 뒹굴거리는걸 좋아합니다 *^^* </li>
+        <li><strong>fun fact:</strong> 저희집 강아지 이름은 호두예요 </li>
       </ul>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section" style="background:#ffffff;">
     <h2>My Projects</h2>
     <div class="cards">
@@ -100,58 +103,59 @@
         <div class="tags"><span class="tag">Arduino</span><span class="tag">Sensor</span></div>
       </div>
       <div class="card">
-        <h3>ESP32‑CAM Live Streaming 📷</h3>
-        <p>ESP32‑CAM 모듈로 반려견 실시간 모니터링 및 캡처 기능 구현</p>
+        <h3>ESP32‏-CAM Live Streaming 📷</h3>
+        <p>ESP32‏-CAM 모듈로 반려견 실시간 모니터링 및 캡처 기능 구현</p>
         <div class="tags"><span class="tag">Camera</span><span class="tag">PlatformIO</span></div>
       </div>
-        <div class="card">
+      <div class="card">
         <h3>Education Curriculum NP</h3>
         <p>네팔 10 day IT Voulnteer ‑ Scratch &amp; 코딩 수업 커리큘럼 설계</p>
         <div class="tags"><span class="tag">Scratch</span><span class="tag">Education</span></div>
       </div>
       <div class="card">
-        <h3>Education Curriculum 🇧🇩</h3>
+        <h3>Education Curriculum 🇷🇩</h3>
         <p>방글라데시 20 day IT Voulnteer ‑ MLP &amp; AI 수업 커리큘럼 설계</p>
         <div class="tags"><span class="tag">MLP</span><span class="tag">Education</span></div>
       </div>
     </div>
   </section>
 
-  <!-- VOLUNTEER -->
-  <section id="volunteer" class="section" style="background:#f1f5f9;">
-    <h2>Volunteer &amp; Overseas Activities</h2>
-    <p style="max-width:720px; margin:0 auto 40px; text-align:center;">
-      네팔에서의 IT 교육 봉사를 시작으로, 현재는 <strong>ITNest</strong> 팀과 함께 방글라데시에서
-      AI 에이전트 시스템을 준비중 입니다. 현지 학생들에게 Python, Teachable Machine,
-      그리고 GPT를 활용한 웹사이트 제작을 가르칠 예정이에요.
-    </p>
-    <div class="cards">
-      <div class="card">
-        <h3>ITNest (Bangladesh Volunteer 2025)</h3>
-        <p>AI 에이전트 시스템 &amp; RAG 챗봇 교육, 문화교류 한복 체험 등 기획·진행</p>
-        <div class="tags"><span class="tag">Volunteer</span><span class="tag">AI</span></div>
-      </div>
-      <div class="card">
-        <h3>TechnoVerse (Nepal Volunteer 2024)</h3>
-        <p>현지 청소년 대상 Scratch 기초·게임 제작 교육</p>
-        <div class="tags"><span class="tag">Volunteer</span><span class="tag">Scratch</span></div>
-      </div>
-    </div>
-  </section>
+<section id="volunteer" class="section">
+  <h2>Volunteer & Overseas Activities</h2>
+  <div style="text-align: center; margin-bottom: 30px;">
+    <p>2024년 8월 <strong>TechnoVerse</strong>팀과 함께 네팔에서 IT 교육 봉사를 시작으로,</p>
+    <p>2025년 7월 <strong>ITNest</strong> 팀과 함께 방글라데시에서 AI 에이전트 시스템을 가르쳤습니다.</p>
+    <p>현지 학생들에게 Gemini CLI를 이용한 게임 만들기와, GPT를 활용한 웹사이트 제작을 가르쳤습니다.</p>
+  </div>
 
-  <!-- TIMELINE -->
+  <!-- 반응형 카드 레이아웃 -->
+  <div class="cards">
+    <div class="card">
+      <h3>ITNest (Bangladesh Volunteer 2025)</h3>
+      <p>AI 에이전트 시스템 &amp; RAG 챗봇 교육, 문화교류 기획·진행</p>
+      <div class="tags"><span class="tag">Volunteer</span><span class="tag">AI</span></div>
+    </div>
+
+    <div class="card">
+      <h3>TechnoVerse (Nepal Volunteer 2024)</h3>
+      <p>현지 청소년 대상 Scratch 기초·게임 제작 교육, 문화 교류 기획·진행</p>
+      <div class="tags"><span class="tag">Volunteer</span><span class="tag">Scratch</span></div>
+    </div>
+  </div>
+</section>
+
+
   <section id="timeline" class="section">
     <h2>Milestones</h2>
     <div class="timeline">
       <div class="timeline-item"><strong>2023</strong> – 조선대학교 컴퓨터공학과 입학</div>
-      <div class="timeline-item"><strong>2024</strong> – 첫 해외 IT 교육 봉사 (Nepal)</div>
+      <div class="timeline-item"><strong>2024</strong> – 첫 해외 IT 교육 봉사 (Nepal - TechnoVerse)</div>
       <div class="timeline-item"><strong>2025</strong> – Smart Pet Feeder 프로젝트 완성</div>
-      <div class="timeline-item"><strong>2025</strong> – ITNest 팀 결성 &amp; Bangladesh 프로그램 준비</div>
-      <div class="timeline-item"><strong>2027</strong> – 7급 전산직 공무원 시험 예정</div>
+      <div class="timeline-item"><strong>2025</strong> – 두번째 해외 IT 교육 봉사 (Bangladesh - ITNest)</div>
+      <div class="timeline-item"><strong>2027</strong> – 지역인재 7급 전산직 공무원 시험 예정</div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section" style="background:#ffffff;">
     <h2>Contact</h2>
     <p style="text-align:center; max-width:600px; margin:0 auto 30px;">
@@ -163,7 +167,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 Hyerim Ju. Made with HTML &amp; 💙.
   </footer>
